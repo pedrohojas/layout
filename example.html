@@ -1,0 +1,649 @@
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+
+  <!-- General Style-->
+  <style type="text/css">
+      body {
+        font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        background: #f0f0f0;
+        width:auto;
+        height:auto;
+        overflow:hidden;
+        margin:0px;
+      }
+      .column{
+        height:100%;
+        float:left;
+        display: inline-block;
+      }
+      .col-1{
+        width:1%;
+      }
+      .col-5{
+        width:5%;
+      }
+      .col-10{
+        width:10%;
+      }
+      .col-20{
+        width:20%;
+      }
+      .col-25{
+        width:25%;
+      }
+            .col-30{
+        width:30%;
+      }
+      .col-40{
+        width:40%;
+      }
+      .col-50{
+        width:50%;
+      }
+      .col-55{
+        width:55%;
+      }
+      .col-60{
+        width:60%;
+      }
+      .col-65{
+        width:65%;
+      }
+      .col-70{
+        width:70%;
+      }
+      .col-74{
+        width:74%;
+      }
+      .col-75{
+        width:75%;
+      }
+      .col-80{
+        width:80%;
+      }
+      .col-90{
+        width:90%;
+      }     
+      .row{
+        width:100%!important;
+        clear: both;
+        display: inline-block;
+
+      }
+
+      .row-5{
+        height:5%;
+      }
+      .row-6{
+        height:6%;
+      }      
+      .row-10{
+        height:10%;
+      }
+      .row-11{
+        height:11%;
+      }
+      .row-15{
+        height:15%;
+      }                 
+      .row-20{
+        height:20%;
+      }      
+      .row-30{
+        height:30%;
+      }      
+      .row-40{
+        height:40%;
+      }      
+      .row-50{
+        height:50%;
+      }
+      .row-55{
+        height:55%;
+      }
+      .row-60{
+        height:60%;
+      }
+      .row-65{
+        height:65%;
+      }
+      .row-70{
+        height:70%;
+      }
+      .row-74{
+        height:74%;
+      }
+      .row-75{
+        height:75%;
+      }
+      .row-80{
+        height:80%;
+      } 
+      .row-85{
+        height:85%;
+      }      
+      .row-90{
+        height:90%;
+      }
+
+      iframe.content-iframe{
+        width: 100%;
+        height:100%;
+        border:none;
+      }
+      img.logo-image{
+        margin:0 auto;
+        width: 100%;
+        height: 100%;
+      }
+      div.logo-container{
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+      }
+      h2
+      {
+        position: relative;
+        width: 50%;
+        font-size: 2em;
+        font-weight: 600;
+        padding: 5px 18px 5px 36px;
+        margin: 30px 10px 10px -20px;
+        color: #F0F0F0;
+        background-color: #003257;
+
+      }
+      h2:after
+      {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0px;
+        top: 100%;
+        border-width: 5px 10px;
+        border-style: solid;
+        border-color: #000203 #000203 transparent transparent;
+      }
+
+      .svg-icon{
+        vertical-align: middle;
+      }
+      .margen{
+        padding:10px;
+      }
+      .time-weather-container{
+        background-color: #003157;
+      }
+  </style>
+
+  <!-- Style for clock-->
+  <style type="text/css">     
+    #clock{
+      color: white; 
+      text-align: center;
+      margin: 0px!important;
+      font-size: 90px!important;
+      font-weight: 300!important;
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
+    }
+
+    @-webkit-keyframes flash {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+      25%, 75% {
+        opacity: 0;
+      }
+    }
+    @keyframes flash {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+      25%, 75% {
+        opacity: 0;
+      }
+    }
+    .flash {
+      -webkit-animation-name: flash;
+              animation-name: flash;
+    }
+    .clock-wrapper{
+      margin-bottom: -20px;
+    }
+  </style>
+
+  <!-- Style for weather-->
+  <style type="text/css">
+
+    @font-face {
+        font-family: 'weather';
+        src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
+        src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
+             url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
+             url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
+             url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    #weather {
+      width: 500px;
+      margin: 0px auto;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    i {
+      color: #fff;
+      font-family: weather;
+      font-size: 100px;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1.0;
+    }
+
+    .icon-0:before { content: ":"; }
+    .icon-1:before { content: "p"; }
+    .icon-2:before { content: "S"; }
+    .icon-3:before { content: "Q"; }
+    .icon-4:before { content: "S"; }
+    .icon-5:before { content: "W"; }
+    .icon-6:before { content: "W"; }
+    .icon-7:before { content: "W"; }
+    .icon-8:before { content: "W"; }
+    .icon-9:before { content: "I"; }
+    .icon-10:before { content: "W"; }
+    .icon-11:before { content: "I"; }
+    .icon-12:before { content: "I"; }
+    .icon-13:before { content: "I"; }
+    .icon-14:before { content: "I"; }
+    .icon-15:before { content: "W"; }
+    .icon-16:before { content: "I"; }
+    .icon-17:before { content: "W"; }
+    .icon-18:before { content: "U"; }
+    .icon-19:before { content: "Z"; }
+    .icon-20:before { content: "Z"; }
+    .icon-21:before { content: "Z"; }
+    .icon-22:before { content: "Z"; }
+    .icon-23:before { content: "Z"; }
+    .icon-24:before { content: "E"; }
+    .icon-25:before { content: "E"; }
+    .icon-26:before { content: "3"; }
+    .icon-27:before { content: "a"; }
+    .icon-28:before { content: "A"; }
+    .icon-29:before { content: "a"; }
+    .icon-30:before { content: "A"; }
+    .icon-31:before { content: "6"; }
+    .icon-32:before { content: "1"; }
+    .icon-33:before { content: "6"; }
+    .icon-34:before { content: "1"; }
+    .icon-35:before { content: "W"; }
+    .icon-36:before { content: "1"; }
+    .icon-37:before { content: "S"; }
+    .icon-38:before { content: "S"; }
+    .icon-39:before { content: "S"; }
+    .icon-40:before { content: "M"; }
+    .icon-41:before { content: "W"; }
+    .icon-42:before { content: "I"; }
+    .icon-43:before { content: "W"; }
+    .icon-44:before { content: "a"; }
+    .icon-45:before { content: "S"; }
+    .icon-46:before { content: "U"; }
+    .icon-47:before { content: "S"; }
+
+    .weather-wrapper {
+      margin: 0 0 8px!important;
+      color: #fff!important;
+      font-size: 70px!important;
+      font-weight: 300!important;
+      text-align: center!important;
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
+    }
+
+    #weather ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    #weather li {
+      background: #fff;
+      background: rgba(255,255,255,0.90);
+      padding: 20px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+
+    #weather .currently {
+      margin: 0 20px;
+    }
+  </style>
+  
+  <!-- style twitter-->
+  <style type="text/css">  
+    .bubble {
+      width: 70%;
+      padding: .5em 1em;
+      line-height: 1.4em;
+      padding: 20px;
+      background-color: #AADAFF;
+      position: relative;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+      border-radius: 8px;
+      text-align: left;
+      display: inline-block; }
+
+
+    .bubble-container {
+      width: 75%;
+      display: block;
+      position: relative;
+      padding-left: 20px;
+      vertical-align: top;
+      display: inline-block; }
+
+    .arrow {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 12px;
+      bottom: 25%;
+      height: 0;
+      width: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid #AADAFF; }
+
+    .timeline {
+      width: 560px;
+      padding-bottom: 2em;
+      list-style-type: none;
+      padding-left: 0px!important;
+    }
+      .timeline li {
+        padding: 1em 0; }
+
+
+    .avatar {
+      width: 15%;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      margin-left: 2%; }
+      .avatar img {
+        width: 100%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        border: 5px solid #ecf0f1;
+        position: relative; }
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: .2em;
+      margin-top:0px;
+      color: #002B4E; }
+  </style>
+
+  <!-- Style news -->
+  <style type="">
+  </style>
+</head>
+
+<body>
+  <div class="row row-10" style="background-color:#003157;">
+    <div class = 'column col-75'></div>
+    <div class = 'column col-25'>
+      <div class= "logo-container margen" style="background-color:#FFF;" >
+        <img class="logo-image" src="logopuente.svg" alt="enterpirse-logo">
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-75">
+    <div class = 'column col-75'>
+      <iframe class="content-iframe" src="http://www.partridgegetslucky.com/"></iframe>
+    </div>
+    <div class = 'column col-25'>
+      <h2>
+        <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="45px" height="45px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+        <path fill="#FFFFFF" d="M48.091,0H1.851C0.83,0,0,0.821,0,1.832v33.163c0,1.009,0.83,1.831,1.85,1.831h25.32L40.564,50.09V36.825h7.526
+          c1.02,0,1.85-0.822,1.85-1.831V1.832C49.94,0.821,49.11,0,48.091,0z M36.802,19.329c-0.129,0.758-0.383,1.264-0.829,1.58
+          l-0.573,0.379l0.254,0.631c0.126,0.253,0.19,0.505,0.19,0.758c0,0.695-0.317,1.39-1.084,2.085l-0.444,0.378l0.189,0.505
+          c0.192,0.38,0.192,0.757,0.129,1.138c-0.129,0.631-0.575,1.073-1.341,1.517l-0.381,0.188l-0.064,0.378
+          c-0.063,0.507-0.32,1.265-0.893,1.833c-0.574,0.632-1.467,0.947-2.551,0.947c-0.512,0-1.085-0.063-1.724-0.126
+          c-1.529-0.189-4.528-1.074-5.995-1.516c-1.276-0.38-2.488-1.453-3.509-1.58l-0.19-0.062c-2.551-0.379-4.848,0.442-5.103-1.074
+          c0-0.251-0.128-0.632-0.318-1.327c-0.83-2.905-2.297-8.337,0-9.222c0.127,0,5.549-0.506,7.334-2.273
+          c0.893-0.821,2.104-1.58,3.444-2.337c1.595-0.885,2.743-1.896,3.954-3.159c0.767-0.758,1.787-1.453,2.296-2.148
+          c0.895-1.263,1.404-1.832,1.914-1.832c0.256,0,0.447,0.127,0.701,0.316c0.575,0.442,0.829,1.136,0.829,2.021
+          c0,1.455-0.955,3.096-2.487,4.296c-1.211,0.948-1.658,2.526-1.595,2.906c0.129,0.758,0.703,1.517,2.999,1.642
+          c2.294,0.126,3.824,0.631,4.591,1.642C36.802,18.255,36.929,18.76,36.802,19.329z"/>
+        </svg>
+        <span> Conversemos </span>
+      </h2>
+      <div id="twitter"></div>
+    </div>
+  </div>
+  <div class="row row-15 margen" style="background-color:#003157;">
+    <div class = 'column col-75'>
+      <div id='post_results'></div>
+    </div>
+    <div class="column col-25 time-weather-container">
+      <div class="row clock-wrapper">
+        <div id="clock">
+        </div>
+      </div>
+      <div class="row">
+        <div id="weather">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- script Twitter -->
+<script type="text/javascript">
+
+ /*********************************************************************
+ *  #### Twitter Post Fetcher v13.0 ####
+ *  Coded by Jason Mayes 2015. A present to all the developers out there.
+ *  www.jasonmayes.com
+ *  Please keep this disclaimer with my code if you use it. Thanks. :-)
+ *  Got feedback or questions, ask here:
+ *  http://www.jasonmayes.com/projects/twitterApi/
+ *  Github: https://github.com/jasonmayes/Twitter-Post-Fetcher
+ *  Updates will be posted to this site.
+ *********************************************************************/
+
+  (function(v,n){"function"===typeof define&&define.amd?define([],n):"object"===typeof exports?module.exports=n():n()})(this,function(){function v(a){return a.replace(/<b[^>]*>(.*?)<\/b>/gi,function(a,f){return f}).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function n(a){a=a.getElementsByTagName("a");for(var c=a.length-1;0<=c;c--)a[c].setAttribute("target","_blank")}function m(a,c){for(var f=[],g=new RegExp("(^| )"+c+"( |$)"),h=a.getElementsByTagName("*"),b=0,k=h.length;b<
+  k;b++)g.test(h[b].className)&&f.push(h[b]);return f}var A="",k=20,B=!0,t=[],w=!1,u=!0,q=!0,x=null,y=!0,C=!0,z=null,D=!0,E=!1,r=!0,F={fetch:function(a){void 0===a.maxTweets&&(a.maxTweets=20);void 0===a.enableLinks&&(a.enableLinks=!0);void 0===a.showUser&&(a.showUser=!0);void 0===a.showTime&&(a.showTime=!0);void 0===a.dateFunction&&(a.dateFunction="default");void 0===a.showRetweet&&(a.showRetweet=!0);void 0===a.customCallback&&(a.customCallback=null);void 0===a.showInteraction&&(a.showInteraction=!0);
+  void 0===a.showImages&&(a.showImages=!1);void 0===a.linksInNewWindow&&(a.linksInNewWindow=!0);if(w)t.push(a);else{w=!0;A=a.domId;k=a.maxTweets;B=a.enableLinks;q=a.showUser;u=a.showTime;C=a.showRetweet;x=a.dateFunction;z=a.customCallback;D=a.showInteraction;E=a.showImages;r=a.linksInNewWindow;var c=document.createElement("script");c.type="text/javascript";c.src="https://cdn.syndication.twimg.com/widgets/timelines/"+a.id+"?&lang="+(a.lang||"en")+"&callback=twitterFetcher.callback&suppress_response_codes=true&rnd="+
+  Math.random();document.getElementsByTagName("head")[0].appendChild(c)}},callback:function(a){var c=document.createElement("div");c.innerHTML=a.body;"undefined"===typeof c.getElementsByClassName&&(y=!1);a=[];var f=[],g=[],h=[],b=[],p=[],e=0;if(y)for(c=c.getElementsByClassName("tweet");e<c.length;){0<c[e].getElementsByClassName("retweet-credit").length?b.push(!0):b.push(!1);if(!b[e]||b[e]&&C)a.push(c[e].getElementsByClassName("e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(c[e].getElementsByClassName("p-author")[0]),
+  g.push(c[e].getElementsByClassName("dt-updated")[0]),void 0!==c[e].getElementsByClassName("inline-media")[0]?h.push(c[e].getElementsByClassName("inline-media")[0]):h.push(void 0);e++}else for(c=m(c,"tweet");e<c.length;)a.push(m(c[e],"e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(m(c[e],"p-author")[0]),g.push(m(c[e],"dt-updated")[0]),void 0!==m(c[e],"inline-media")[0]?h.push(m(c[e],"inline-media")[0]):h.push(void 0),0<m(c[e],"retweet-credit").length?b.push(!0):b.push(!1),e++;
+  a.length>k&&(a.splice(k,a.length-k),f.splice(k,f.length-k),g.splice(k,g.length-k),b.splice(k,b.length-k),h.splice(k,h.length-k));c=[];e=a.length;for(b=0;b<e;){if("string"!==typeof x){var d=g[b].getAttribute("datetime"),l=new Date(g[b].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),d=x(l,d);g[b].setAttribute("aria-label",d);if(a[b].innerText)if(y)g[b].innerText=d;else{var l=document.createElement("p"),G=document.createTextNode(d);l.appendChild(G);l.setAttribute("aria-label",
+  d);g[b]=l}else g[b].textContent=d}d="";B?(r&&(n(a[b]),q&&n(f[b])),q&&(d+='<div class="avatar">'+v(f[b].innerHTML)+"</div>"),d+='<div class="bubble-container"><div class="bubble"><h3 id="twitter-title"></h3><br>'+v(a[b].innerHTML)+"</div><div class='arrow'></div></div>",u&&(d+='<p class="timePosted">'+g[b].getAttribute("aria-label")+"</p>")):a[b].innerText?(q&&(d+='<p class="user">'+f[b].innerText+"</p>"),d+='<p class="tweet">'+a[b].innerText+"</p>",u&&(d+='<p class="timePosted">'+g[b].innerText+"</p>")):(q&&(d+='<p class="user">'+f[b].textContent+"</p>"),d+='<p class="tweet">'+a[b].textContent+
+  "</p>",u&&(d+='<p class="timePosted">'+g[b].textContent+"</p>"));D&&(d+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+p[b]+'" class="twitter_reply_icon"'+(r?' target="_blank">':">")+'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+p[b]+'" class="twitter_retweet_icon"'+(r?' target="_blank">':">")+'Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+p[b]+'" class="twitter_fav_icon"'+(r?' target="_blank">':">")+"Favorite</a></p>");E&&void 0!==
+  h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<li>"+c[f]+"</li>",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
+
+  var config5 = {
+  "id": '568430290427985920',
+  "domId": '',
+  "maxTweets": 3,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": false,
+  "dateFunction": '',
+  "showRetweet": false,
+  "customCallback": handleTweets,
+  "showInteraction": false
+  };
+
+  function handleTweets(tweets){
+      var x = tweets.length;
+      var n = 0;
+      var element = document.getElementById('twitter');
+      var html = '<ul class="timeline">';
+      while(n < x) {
+        html += '<li>' + tweets[n] + '</li>';
+        n++;
+      }
+      html += '</ul>';
+      element.innerHTML = html;
+
+      // var twits[];
+      // var this_name = '';
+      $('ul.timeline').find('li').each(function(){
+        var current = $(this);
+        var current_user = current.find('[data-scribe="element:screen_name"]').html();
+        current.find('h3').html(current_user);
+        current.find('[data-scribe="element:screen_name"]').hide();
+        current.find('[data-scribe="element:name"]').hide();
+      });
+
+  }
+
+  twitterFetcher.fetch(config5);
+</script>
+
+
+<script type="text/javascript">
+
+  //variables configurables javascript
+  rssUrlGlobal = "http://news.google.cl/?output=rss"
+
+  // RSS Script 
+
+  rssList = []
+  rssIdDiv = "post_results"
+  function myGetElementsByClassName(selector) {
+      if ( document.getElementsByClassName ) {
+          return document.getElementsByClassName(selector);
+      }
+      var returnList = new Array();
+      var nodes = document.getElementsByTagName('div');
+      var max = nodes.length;
+      for ( var i = 0; i < max; i++ ) {
+          if ( nodes[i].className == selector ) {
+              returnList[returnList.length] = nodes[i];
+          }
+      }
+      return returnList;
+    }
+
+    var rssReader = {
+      containers : null,
+      // initialization function
+      init : function(selector) {
+        var container = document.getElementById(rssIdDiv);
+            // getting necessary variables
+            var rssUrl = rssUrlGlobal
+            // count of news
+            var num = 30
+            var id = rssIdDiv;
+            // creating temp scripts which will help us to transform XML (RSS) to JSON
+            var url = encodeURIComponent(rssUrl);
+            var googUrl = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num='+num+'&q='+url+'&callback=rssReader.parse&context='+id;
+            var script = document.createElement('script');
+            script.setAttribute('type','text/javascript');
+            script.setAttribute('charset','utf-8');
+            script.setAttribute('src',googUrl);
+            container.appendChild(script);
+        
+      },
+      // parsing of results by google
+      parse : function(context,data) {
+          var entries = data.feed.entries;
+          if (data.feed.entries.length>0){
+            rssList = []
+          }
+          for (var i=0; i<entries.length; i++) {
+              rssList.push(entries[i].title)
+          }
+      }
+    };
+    // Load 1 rss
+    function refreshRss () {
+      var container = document.getElementById(rssIdDiv);
+      container.innerHTML = '';
+      // creating list of elements
+      var mainList = document.createElement('ul');
+      // also creating its childs (subitems) 
+      var listItem = document.createElement('p');
+      var title = rssList.pop();
+      var text = document.createTextNode(title);
+      // add link to list item
+      listItem.appendChild(text);
+      // adding list item to main list
+      mainList.appendChild(listItem);
+      container.appendChild(mainList);
+      rssList.unshift(title);
+    }
+
+    window.onload = function() {
+        rssReader.init('post_results');
+        window.setTimeout(function(){
+        refreshRss();      
+        },1000);
+    }
+
+    window.setInterval(function(){ 
+        rssReader.init('post_results');
+    }, 2400*1000);
+
+    window.setInterval(function(){
+      refreshRss();
+    }, 20*1000);
+</script>
+
+<!-- Script for Weather-->
+<script type="text/javascript">
+    $(document).ready(function() {  
+      getWeather(); //Get the initial weather.
+      setInterval(getWeather, 600000); //Update the weather every 10 minutes.
+    });
+
+    function getWeather() {
+      $.simpleWeather({
+        woeid: '',
+        location: 'Santiago ,Chile',
+        unit: 'c',
+        success: function(weather) {
+          html = '<div class = "weather-wrapper"><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</div>';
+          $("#weather").html(html);
+        },
+        error: function(error) {
+          $("#weather").html('<p>'+error+'</p>');
+        }
+      });
+    }
+</script>
+
+<!-- Script for Clock -->
+<script type="text/javascript">
+var d, h, m, s, color;
+function displayTime() {
+  d = new Date(); //new data object
+  h = d.getHours();
+  m = d.getMinutes();
+  s = d.getSeconds();
+  if(h <= 9) h = '0'+h;
+  if(m <= 9) m = '0'+m;
+  if(s <= 9) s = '0'+s;
+  color = h+":"+m;
+  $("#clock").html(color);
+  setTimeout(displayTime, 1000);
+}
+
+//call the function
+displayTime();
+</script>
