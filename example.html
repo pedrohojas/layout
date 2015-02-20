@@ -26,13 +26,16 @@
       .col-10{
         width:10%;
       }
+      .col-15{
+        width:15%;
+      }
       .col-20{
         width:20%;
       }
       .col-25{
         width:25%;
       }
-            .col-30{
+      .col-30{
         width:30%;
       }
       .col-40{
@@ -61,6 +64,9 @@
       }
       .col-80{
         width:80%;
+      }
+      .col-85{
+        width:85%;
       }
       .col-90{
         width:90%;
@@ -184,7 +190,7 @@
       color: white; 
       text-align: center;
       margin: 0px!important;
-      font-size: 90px!important;
+      font-size: 70px!important;
       font-weight: 300!important;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
     }
@@ -230,7 +236,6 @@
 
 
     #weather {
-      width: 500px;
       margin: 0px auto;
       text-align: center;
       text-transform: uppercase;
@@ -240,7 +245,7 @@
     i {
       color: #fff;
       font-family: weather;
-      font-size: 100px;
+      font-size: 80px;
       font-weight: normal;
       font-style: normal;
       line-height: 1.0;
@@ -298,7 +303,7 @@
     .weather-wrapper {
       margin: 0 0 8px!important;
       color: #fff!important;
-      font-size: 70px!important;
+      font-size: 60px!important;
       font-weight: 300!important;
       text-align: center!important;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
@@ -323,13 +328,16 @@
   </style>
   
   <!-- style twitter-->
-  <style type="text/css">  
+  <style type="text/css"> 
+    #twitter{
+      height:100%;
+      overflow-y:hidden;}
     .bubble {
-      width: 70%;
+      width: 88%;
       padding: .5em 1em;
       line-height: 1.4em;
       padding: 20px;
-      background-color: #AADAFF;
+      background-color: #cdcdcd;
       position: relative;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
@@ -345,7 +353,7 @@
       display: block;
       position: relative;
       padding-left: 20px;
-      vertical-align: top;
+      vertical-align: middle;
       display: inline-block; }
 
     .arrow {
@@ -358,45 +366,81 @@
       width: 0;
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
-      border-right: 20px solid #AADAFF; }
+      border-right: 20px solid #cdcdcd;
+      vertical-align: middle;
+    }
 
     .timeline {
-      width: 560px;
+      width: 100%;
       padding-bottom: 2em;
       list-style-type: none;
       padding-left: 0px!important;
+      overflow: hidden;
+      margin-top:0px;
     }
-      .timeline li {
-        padding: 1em 0; }
-
-
+    .timeline li {
+      padding: 1em 0; 
+    }
     .avatar {
       width: 15%;
       display: inline-block;
-      vertical-align: top;
+      vertical-align: middle;
       position: relative;
-      margin-left: 2%; }
-      .avatar img {
-        width: 100%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        border-radius: 50%;
-        border: 5px solid #ecf0f1;
-        position: relative; }
-
+      margin-left: 2%; 
+    }
+    .avatar img {
+      width: 100%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-radius: 50%;
+      border: 5px solid #ecf0f1;
+      position: relative; 
+    }
     h3 {
       font-size: 1.2em;
       font-weight: bold;
       display: inline-block;
       margin-bottom: .2em;
       margin-top:0px;
-      color: #002B4E; }
+      color: #002B4E; 
+    }
   </style>
 
   <!-- Style news -->
   <style type="">
+  .post_results_container{
+    height:calc(100% - 30px);
+    background-color: #e0e0e0;
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    position:relative;
+    top: -10px;
+    color: #003157;
+    vertical-align: middle;
+  }
+  .post_results_container::after{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 100%;
+    top: 0%;
+    border-width: 5px 10px;
+    border-style: solid;
+    border-color: transparent transparent #000203 #000203 ;
+  }
+  #post_results{
+    padding-right:30px;
+  }
+  #post_results p{
+    vertical-align: middle;
+    font-size: 27px;
+  }
+
   </style>
 
 </head>
@@ -413,39 +457,85 @@
 
   <div class="row row-75">
     <div class = 'column col-75'>
-      <iframe class="content-iframe" src="http://www.wikiexplora.com/index.php/Pochoco"></iframe>
+      <iframe class="content-iframe" src="http://randomcolour.com/"></iframe>
     </div>
     <div class = 'column col-25'>
-      <h2>
-        <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="45px" height="45px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-        <path fill="#FFFFFF" d="M48.091,0H1.851C0.83,0,0,0.821,0,1.832v33.163c0,1.009,0.83,1.831,1.85,1.831h25.32L40.564,50.09V36.825h7.526
-          c1.02,0,1.85-0.822,1.85-1.831V1.832C49.94,0.821,49.11,0,48.091,0z M36.802,19.329c-0.129,0.758-0.383,1.264-0.829,1.58
-          l-0.573,0.379l0.254,0.631c0.126,0.253,0.19,0.505,0.19,0.758c0,0.695-0.317,1.39-1.084,2.085l-0.444,0.378l0.189,0.505
-          c0.192,0.38,0.192,0.757,0.129,1.138c-0.129,0.631-0.575,1.073-1.341,1.517l-0.381,0.188l-0.064,0.378
-          c-0.063,0.507-0.32,1.265-0.893,1.833c-0.574,0.632-1.467,0.947-2.551,0.947c-0.512,0-1.085-0.063-1.724-0.126
-          c-1.529-0.189-4.528-1.074-5.995-1.516c-1.276-0.38-2.488-1.453-3.509-1.58l-0.19-0.062c-2.551-0.379-4.848,0.442-5.103-1.074
-          c0-0.251-0.128-0.632-0.318-1.327c-0.83-2.905-2.297-8.337,0-9.222c0.127,0,5.549-0.506,7.334-2.273
-          c0.893-0.821,2.104-1.58,3.444-2.337c1.595-0.885,2.743-1.896,3.954-3.159c0.767-0.758,1.787-1.453,2.296-2.148
-          c0.895-1.263,1.404-1.832,1.914-1.832c0.256,0,0.447,0.127,0.701,0.316c0.575,0.442,0.829,1.136,0.829,2.021
-          c0,1.455-0.955,3.096-2.487,4.296c-1.211,0.948-1.658,2.526-1.595,2.906c0.129,0.758,0.703,1.517,2.999,1.642
-          c2.294,0.126,3.824,0.631,4.591,1.642C36.802,18.255,36.929,18.76,36.802,19.329z"/>
-        </svg>
-        <span> Conversemos </span>
-      </h2>
-      <div id="twitter"></div>
+      <div class="row row-15">
+        <h2>
+          <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+          <path fill="#FFFFFF" d="M48.091,0H1.851C0.83,0,0,0.821,0,1.832v33.163c0,1.009,0.83,1.831,1.85,1.831h25.32L40.564,50.09V36.825h7.526
+            c1.02,0,1.85-0.822,1.85-1.831V1.832C49.94,0.821,49.11,0,48.091,0z M36.802,19.329c-0.129,0.758-0.383,1.264-0.829,1.58
+            l-0.573,0.379l0.254,0.631c0.126,0.253,0.19,0.505,0.19,0.758c0,0.695-0.317,1.39-1.084,2.085l-0.444,0.378l0.189,0.505
+            c0.192,0.38,0.192,0.757,0.129,1.138c-0.129,0.631-0.575,1.073-1.341,1.517l-0.381,0.188l-0.064,0.378
+            c-0.063,0.507-0.32,1.265-0.893,1.833c-0.574,0.632-1.467,0.947-2.551,0.947c-0.512,0-1.085-0.063-1.724-0.126
+            c-1.529-0.189-4.528-1.074-5.995-1.516c-1.276-0.38-2.488-1.453-3.509-1.58l-0.19-0.062c-2.551-0.379-4.848,0.442-5.103-1.074
+            c0-0.251-0.128-0.632-0.318-1.327c-0.83-2.905-2.297-8.337,0-9.222c0.127,0,5.549-0.506,7.334-2.273
+            c0.893-0.821,2.104-1.58,3.444-2.337c1.595-0.885,2.743-1.896,3.954-3.159c0.767-0.758,1.787-1.453,2.296-2.148
+            c0.895-1.263,1.404-1.832,1.914-1.832c0.256,0,0.447,0.127,0.701,0.316c0.575,0.442,0.829,1.136,0.829,2.021
+            c0,1.455-0.955,3.096-2.487,4.296c-1.211,0.948-1.658,2.526-1.595,2.906c0.129,0.758,0.703,1.517,2.999,1.642
+            c2.294,0.126,3.824,0.631,4.591,1.642C36.802,18.255,36.929,18.76,36.802,19.329z"/>
+          </svg>
+          <span> Conversemos </span>
+        </h2>
+      </div>
+      <div class="row row-85">  
+        <div id="twitter"></div>
+      </div>
     </div>
   </div>
-  <div class="row row-15 margen" style="background-color:#003157;">
-    <div class = 'column col-75'>
-      <div id='post_results'></div>
-    </div>
-    <div class="column col-25 time-weather-container">
-      <div class="row clock-wrapper">
-        <div id="clock">
+  <div class="row row-15 " style="background-color:#003157;">
+    <div class = 'column col-70'>
+      <div class='post_results_container'>
+        <div class = 'column col-15'>
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+            <g>
+              <g>
+                <path fill="#003157" d="M25.296,47.794c-12.48,0-22.646-10.165-22.646-22.646c0-12.48,10.166-22.646,22.646-22.646
+                  c12.48,0,22.645,10.166,22.645,22.646C47.941,37.629,37.776,47.794,25.296,47.794z M25.296,5.371
+                  c-10.92,0-19.777,8.857-19.777,19.777c0,10.92,8.857,19.727,19.777,19.727c10.919,0,19.777-8.856,19.777-19.777
+                  S36.216,5.371,25.296,5.371z"/>
+              </g>
+              <g>
+                <g>
+                  <path fill="#003157" d="M33.349,36.169c-0.253,0-0.504,0-0.756-0.05h-15.55c-1.006,0-1.912-0.353-2.566-1.058
+                    c-1.309-1.409-1.258-3.623-1.258-3.874V14.479H32.09V25.45l5.284-0.151v6.794c0,0.101,0.051,1.711-1.107,2.918
+                    C35.763,35.565,34.857,36.169,33.349,36.169z M33.247,33.301c0.403,0,0.755-0.101,0.906-0.252
+                    c0.251-0.252,0.302-0.755,0.302-0.905v-3.876l-2.365,0.102v3.069c0,0.302,0.05,1.51,0.855,1.812
+                    C33.046,33.25,33.146,33.301,33.247,33.301z M16.087,17.398v13.89c0,0.553,0.101,1.459,0.453,1.812
+                    c0.101,0.101,0.202,0.15,0.503,0.15h12.48c-0.302-0.906-0.302-1.711-0.302-1.812V27.01c0,0,0,0,0-0.05v-9.562H16.087z"/>
+                </g>
+                <g>
+                  <path fill="#003157" d="M26.856,22.079h-8.455c-0.554,0-0.956-0.453-0.956-0.957c0-0.554,0.453-0.956,0.956-0.956h8.455
+                    c0.553,0,0.956,0.453,0.956,0.956C27.812,21.676,27.409,22.079,26.856,22.079z"/>
+                </g>
+                <g>
+                  <path fill="#003157" d="M26.856,26.306h-8.455c-0.554,0-0.956-0.453-0.956-0.956s0.453-0.956,0.956-0.956h8.455
+                    c0.553,0,0.956,0.453,0.956,0.956S27.409,26.306,26.856,26.306z"/>
+                </g>
+                <g>
+                  <path fill="#003157" d="M26.856,30.634h-8.455c-0.554,0-0.956-0.453-0.956-0.957c0-0.553,0.453-0.956,0.956-0.956h8.455
+                    c0.553,0,0.956,0.453,0.956,0.956C27.812,30.181,27.409,30.634,26.856,30.634z"/>
+                </g>
+              </g>
+            </g>
+            </svg>
+
+        </div>
+        <div class = 'column col-85'>
+          <div id='post_results'></div>
         </div>
       </div>
+    </div>
+
+    <div class="column col-15 margen">
       <div class="row">
         <div id="weather">
+        </div>
+      </div>
+    </div>
+    <div class="column margen">
+      <div class="row clock-wrapper">
+        <div id="clock">
         </div>
       </div>
     </div>
@@ -463,7 +553,7 @@ logoEnterpriseUrl = 'logopuente.svg'
 //twitterId = 'TWITTERID'
 //weatherLocation = 'WEATHERLOCATION'
 //logoEnterpriseUrl = 'LOGOENTERPRISE'
-$("#enterpirse-logo").attr('src',logoEnterpriseUrl);
+$("#enterprise-logo").attr('src',logoEnterpriseUrl);
 
 // SCRIPT 
 
@@ -479,21 +569,22 @@ $("#enterpirse-logo").attr('src',logoEnterpriseUrl);
  *  Github: https://github.com/jasonmayes/Twitter-Post-Fetcher
  *  Updates will be posted to this site.
  *********************************************************************/
+
   (function(v,n){"function"===typeof define&&define.amd?define([],n):"object"===typeof exports?module.exports=n():n()})(this,function(){function v(a){return a.replace(/<b[^>]*>(.*?)<\/b>/gi,function(a,f){return f}).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function n(a){a=a.getElementsByTagName("a");for(var c=a.length-1;0<=c;c--)a[c].setAttribute("target","_blank")}function m(a,c){for(var f=[],g=new RegExp("(^| )"+c+"( |$)"),h=a.getElementsByTagName("*"),b=0,k=h.length;b<k;b++)g.test(h[b].className)&&f.push(h[b]);return f}var A="",k=20,B=!0,t=[],w=!1,u=!0,q=!0,x=null,y=!0,C=!0,z=null,D=!0,E=!1,r=!0,F={fetch:function(a){void 0===a.maxTweets&&(a.maxTweets=20);void 0===a.enableLinks&&(a.enableLinks=!0);void 0===a.showUser&&(a.showUser=!0);void 0===a.showTime&&(a.showTime=!0);void 0===a.dateFunction&&(a.dateFunction="default");void 0===a.showRetweet&&(a.showRetweet=!0);void 0===a.customCallback&&(a.customCallback=null);void 0===a.showInteraction&&(a.showInteraction=!0);void 0===a.showImages&&(a.showImages=!1);void 0===a.linksInNewWindow&&(a.linksInNewWindow=!0);if(w)t.push(a);else{w=!0;A=a.domId;k=a.maxTweets;B=a.enableLinks;q=a.showUser;u=a.showTime;C=a.showRetweet;x=a.dateFunction;z=a.customCallback;D=a.showInteraction;E=a.showImages;r=a.linksInNewWindow;var c=document.createElement("script");c.type="text/javascript";c.src="https://cdn.syndication.twimg.com/widgets/timelines/"+a.id+"?&lang="+(a.lang||"en")+"&callback=twitterFetcher.callback&suppress_response_codes=true&rnd="+ Math.random();document.getElementsByTagName("head")[0].appendChild(c)}},callback:function(a){var c=document.createElement("div");c.innerHTML=a.body;"undefined"===typeof c.getElementsByClassName&&(y=!1);a=[];var f=[],g=[],h=[],b=[],p=[],e=0;if(y)for(c=c.getElementsByClassName("tweet");e<c.length;){0<c[e].getElementsByClassName("retweet-credit").length?b.push(!0):b.push(!1);if(!b[e]||b[e]&&C)a.push(c[e].getElementsByClassName("e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(c[e].getElementsByClassName("p-author")[0]),g.push(c[e].getElementsByClassName("dt-updated")[0]),void 0!==c[e].getElementsByClassName("inline-media")[0]?h.push(c[e].getElementsByClassName("inline-media")[0]):h.push(void 0);e++}else for(c=m(c,"tweet");e<c.length;)a.push(m(c[e],"e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(m(c[e],"p-author")[0]),g.push(m(c[e],"dt-updated")[0]),void 0!==m(c[e],"inline-media")[0]?h.push(m(c[e],"inline-media")[0]):h.push(void 0),0<m(c[e],"retweet-credit").length?b.push(!0):b.push(!1),e++;a.length>k&&(a.splice(k,a.length-k),f.splice(k,f.length-k),g.splice(k,g.length-k),b.splice(k,b.length-k),h.splice(k,h.length-k));c=[];e=a.length;for(b=0;b<e;){if("string"!==typeof x){var d=g[b].getAttribute("datetime"),l=new Date(g[b].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),d=x(l,d);g[b].setAttribute("aria-label",d);if(a[b].innerText)if(y)g[b].innerText=d;else{var l=document.createElement("p"),G=document.createTextNode(d);l.appendChild(G);l.setAttribute("aria-label",d);g[b]=l}else g[b].textContent=d}d="";B?(r&&(n(a[b]),q&&n(f[b])),q&&(d+='<div class="avatar">'+v(f[b].innerHTML)+"</div>"),d+='<div class="bubble-container"><div class="bubble"><h3 id="twitter-title"></h3><br>'+v(a[b].innerHTML)+"</div><div class='arrow'></div></div>",u&&(d+='<p class="timePosted">'+g[b].getAttribute("aria-label")+"</p>")):a[b].innerText?(q&&(d+='<p class="user">'+f[b].innerText+"</p>"),d+='<p class="tweet">'+a[b].innerText+"</p>",u&&(d+='<p class="timePosted">'+g[b].innerText+"</p>")):(q&&(d+='<p class="user">'+f[b].textContent+"</p>"),d+='<p class="tweet">'+a[b].textContent+"</p>",u&&(d+='<p class="timePosted">'+g[b].textContent+"</p>"));D&&(d+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+p[b]+'" class="twitter_reply_icon"'+(r?' target="_blank">':">")+'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+p[b]+'" class="twitter_retweet_icon"'+(r?' target="_blank">':">")+'Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+p[b]+'" class="twitter_fav_icon"'+(r?' target="_blank">':">")+"Favorite</a></p>");E&&void 0!==h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<li>"+c[f]+"</li>",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
 
-  var config5 = {
-  "id": twitterId,
-  "domId": '',
-  "maxTweets": 8,
-  "enableLinks": true,
-  "showUser": true,
-  "showTime": false,
-  "dateFunction": '',
-  "showRetweet": false,
-  "customCallback": handleTweets,
-  "showInteraction": false
-  };
-  tweetsList = []
+
+    var config5 = {
+    "id": twitterId,
+    "domId": '',
+    "maxTweets": 5,
+    "enableLinks": true,
+    "showUser": true,
+    "showTime": false,
+    "dateFunction": '',
+    "showRetweet": false,
+    "customCallback": handleTweets,
+    "showInteraction": false
+    };
   function handleTweets(tweets){
     var x = tweets.length;
     var n = 0;
@@ -546,7 +637,20 @@ $("#enterpirse-logo").attr('src',logoEnterpriseUrl);
   window.setInterval(function(){
     refreshTwitter();
   }, 8*20*1000);
-// Script for RSS
+
+
+  // Script for RSS
+  function fadeIn(el) {
+    el.style.opacity = 0;
+    var tick = function() {
+      el.style.opacity = +el.style.opacity + 0.01;    
+      if (+el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+      }
+    };
+    tick();
+  }
+
 
 
   rssList = []
@@ -612,6 +716,7 @@ $("#enterpirse-logo").attr('src',logoEnterpriseUrl);
       // adding list item to main list
       mainList.appendChild(listItem);
       container.appendChild(mainList);
+      fadeIn(container.children[0]);
       rssList.unshift(title);
     }
 
@@ -629,6 +734,9 @@ $("#enterpirse-logo").attr('src',logoEnterpriseUrl);
     window.setInterval(function(){
       refreshRss();
     }, 20*1000);
+
+   
+
 
 // Script for Weather
     $(document).ready(function() {  
@@ -661,7 +769,8 @@ $("#enterpirse-logo").attr('src',logoEnterpriseUrl);
     if(h <= 9) h = '0'+h;
     if(m <= 9) m = '0'+m;
     if(s <= 9) s = '0'+s;
-    color = h+":"+m;
+    color = h+"<span id='clock-separator' style='visibility:hidden;'>:</span>"+m;
+    setTimeout(function(){$('#clock-separator').css('visibility','visible')}, 350);
     $("#clock").html(color);
     setTimeout(displayTime, 1000);
   }
