@@ -626,7 +626,6 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
     });
   }
   function refreshTwitter(){
-
     var element = document.getElementById('twitter');
     var html = '<ul class="timeline">';
     var n = 0;
@@ -636,9 +635,20 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
     }
     html += '</ul>';
     element.innerHTML = html;
+          // var twits[];
+      // var this_name = '';
+      $('ul.timeline').find('li').each(function(){
+        var current = $(this);
+        var current_user = current.find('[data-scribe="element:screen_name"]').html();
+        current.find('h3').html(current_user);
+        current.find('[data-scribe="element:screen_name"]').hide();
+        current.find('[data-scribe="element:name"]').hide();
+      });
+
     
   }
   twitterFetcher.fetch(config5);
+
   window.setTimeout(function(){
     refreshTwitter();
   },1000);
