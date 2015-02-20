@@ -26,6 +26,9 @@
       .col-10{
         width:10%;
       }
+      .col-15{
+        width:15%;
+      }
       .col-20{
         width:20%;
       }
@@ -61,6 +64,9 @@
       }
       .col-80{
         width:80%;
+      }
+      .col-85{
+        width:85%;
       }
       .col-90{
         width:90%;
@@ -184,7 +190,7 @@
       color: white; 
       text-align: center;
       margin: 0px!important;
-      font-size: 100px!important;
+      font-size: 70px!important;
       font-weight: 300!important;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
     }
@@ -239,7 +245,7 @@
     i {
       color: #fff;
       font-family: weather;
-      font-size: 120px;
+      font-size: 80px;
       font-weight: normal;
       font-style: normal;
       line-height: 1.0;
@@ -297,7 +303,7 @@
     .weather-wrapper {
       margin: 0 0 8px!important;
       color: #fff!important;
-      font-size: 100px!important;
+      font-size: 60px!important;
       font-weight: 300!important;
       text-align: center!important;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
@@ -322,9 +328,12 @@
   </style>
   
   <!-- style twitter-->
-  <style type="text/css">  
+  <style type="text/css"> 
+    #twitter{
+      height:100%;
+      overflow-y:hidden;}
     .bubble {
-      width: 70%;
+      width: 88%;
       padding: .5em 1em;
       line-height: 1.4em;
       padding: 20px;
@@ -344,7 +353,7 @@
       display: block;
       position: relative;
       padding-left: 20px;
-      vertical-align: top;
+      vertical-align: middle;
       display: inline-block; }
 
     .arrow {
@@ -357,22 +366,25 @@
       width: 0;
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
-      border-right: 20px solid #cdcdcd; }
+      border-right: 20px solid #cdcdcd;
+      vertical-align: middle;
+    }
 
     .timeline {
-      width: 560px;
+      width: 100%;
       padding-bottom: 2em;
       list-style-type: none;
       padding-left: 0px!important;
+      overflow: hidden;
+      margin-top:0px;
     }
-      .timeline li {
-        padding: 1em 0; }
-
-
+    .timeline li {
+      padding: 1em 0; 
+    }
     .avatar {
       width: 15%;
       display: inline-block;
-      vertical-align: top;
+      vertical-align: middle;
       position: relative;
       margin-left: 2%; 
     }
@@ -406,8 +418,9 @@
     border-radius: 0 0 10px 10px;
     padding: 10px;
     position:relative;
-    top: -9px;
+    top: -10px;
     color: #003157;
+    vertical-align: middle;
   }
   .post_results_container::after{
     content: ' ';
@@ -421,14 +434,15 @@
     border-color: transparent transparent #000203 #000203 ;
   }
   #post_results{
-    
+    padding-right:30px;
   }
   #post_results p{
     vertical-align: middle;
-    font-size: 25px;
+    font-size: 27px;
   }
 
   </style>
+
 </head>
 
 <body>
@@ -436,39 +450,43 @@
     <div class = 'column col-75'></div>
     <div class = 'column col-25'>
       <div class= "logo-container margen" style="background-color:#FFF;" >
-        <img class="logo-image" src="logopuente.svg" alt="enterpirse-logo">
+        <img id='enterprise-logo' class="logo-image" alt="enterpirse-logo">
       </div>
     </div>
   </div>
 
   <div class="row row-75">
     <div class = 'column col-75'>
-      <iframe class="content-iframe" src="http://www.partridgegetslucky.com/"></iframe>
+      <iframe class="content-iframe" src="http://randomcolour.com/"></iframe>
     </div>
     <div class = 'column col-25'>
-      <h2>
-        <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="45px" height="45px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-        <path fill="#FFFFFF" d="M48.091,0H1.851C0.83,0,0,0.821,0,1.832v33.163c0,1.009,0.83,1.831,1.85,1.831h25.32L40.564,50.09V36.825h7.526
-          c1.02,0,1.85-0.822,1.85-1.831V1.832C49.94,0.821,49.11,0,48.091,0z M36.802,19.329c-0.129,0.758-0.383,1.264-0.829,1.58
-          l-0.573,0.379l0.254,0.631c0.126,0.253,0.19,0.505,0.19,0.758c0,0.695-0.317,1.39-1.084,2.085l-0.444,0.378l0.189,0.505
-          c0.192,0.38,0.192,0.757,0.129,1.138c-0.129,0.631-0.575,1.073-1.341,1.517l-0.381,0.188l-0.064,0.378
-          c-0.063,0.507-0.32,1.265-0.893,1.833c-0.574,0.632-1.467,0.947-2.551,0.947c-0.512,0-1.085-0.063-1.724-0.126
-          c-1.529-0.189-4.528-1.074-5.995-1.516c-1.276-0.38-2.488-1.453-3.509-1.58l-0.19-0.062c-2.551-0.379-4.848,0.442-5.103-1.074
-          c0-0.251-0.128-0.632-0.318-1.327c-0.83-2.905-2.297-8.337,0-9.222c0.127,0,5.549-0.506,7.334-2.273
-          c0.893-0.821,2.104-1.58,3.444-2.337c1.595-0.885,2.743-1.896,3.954-3.159c0.767-0.758,1.787-1.453,2.296-2.148
-          c0.895-1.263,1.404-1.832,1.914-1.832c0.256,0,0.447,0.127,0.701,0.316c0.575,0.442,0.829,1.136,0.829,2.021
-          c0,1.455-0.955,3.096-2.487,4.296c-1.211,0.948-1.658,2.526-1.595,2.906c0.129,0.758,0.703,1.517,2.999,1.642
-          c2.294,0.126,3.824,0.631,4.591,1.642C36.802,18.255,36.929,18.76,36.802,19.329z"/>
-        </svg>
-        <span> Conversemos </span>
-      </h2>
-      <div id="twitter"></div>
+      <div class="row row-15">
+        <h2>
+          <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+          <path fill="#FFFFFF" d="M48.091,0H1.851C0.83,0,0,0.821,0,1.832v33.163c0,1.009,0.83,1.831,1.85,1.831h25.32L40.564,50.09V36.825h7.526
+            c1.02,0,1.85-0.822,1.85-1.831V1.832C49.94,0.821,49.11,0,48.091,0z M36.802,19.329c-0.129,0.758-0.383,1.264-0.829,1.58
+            l-0.573,0.379l0.254,0.631c0.126,0.253,0.19,0.505,0.19,0.758c0,0.695-0.317,1.39-1.084,2.085l-0.444,0.378l0.189,0.505
+            c0.192,0.38,0.192,0.757,0.129,1.138c-0.129,0.631-0.575,1.073-1.341,1.517l-0.381,0.188l-0.064,0.378
+            c-0.063,0.507-0.32,1.265-0.893,1.833c-0.574,0.632-1.467,0.947-2.551,0.947c-0.512,0-1.085-0.063-1.724-0.126
+            c-1.529-0.189-4.528-1.074-5.995-1.516c-1.276-0.38-2.488-1.453-3.509-1.58l-0.19-0.062c-2.551-0.379-4.848,0.442-5.103-1.074
+            c0-0.251-0.128-0.632-0.318-1.327c-0.83-2.905-2.297-8.337,0-9.222c0.127,0,5.549-0.506,7.334-2.273
+            c0.893-0.821,2.104-1.58,3.444-2.337c1.595-0.885,2.743-1.896,3.954-3.159c0.767-0.758,1.787-1.453,2.296-2.148
+            c0.895-1.263,1.404-1.832,1.914-1.832c0.256,0,0.447,0.127,0.701,0.316c0.575,0.442,0.829,1.136,0.829,2.021
+            c0,1.455-0.955,3.096-2.487,4.296c-1.211,0.948-1.658,2.526-1.595,2.906c0.129,0.758,0.703,1.517,2.999,1.642
+            c2.294,0.126,3.824,0.631,4.591,1.642C36.802,18.255,36.929,18.76,36.802,19.329z"/>
+          </svg>
+          <span> Conversemos </span>
+        </h2>
+      </div>
+      <div class="row row-85">  
+        <div id="twitter"></div>
+      </div>
     </div>
   </div>
   <div class="row row-15 " style="background-color:#003157;">
-    <div class = 'column col-55'>
+    <div class = 'column col-70'>
       <div class='post_results_container'>
-        <div class = 'column col-20'>
+        <div class = 'column col-15'>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
             <g>
               <g>
@@ -503,28 +521,43 @@
             </svg>
 
         </div>
-        <div class = 'column col-80'>
+        <div class = 'column col-85'>
           <div id='post_results'></div>
         </div>
       </div>
     </div>
-    <div class="column col-20 margen">
-      <div class="row clock-wrapper">
-        <div id="clock">
+
+    <div class="column col-15 margen">
+      <div class="row">
+        <div id="weather">
         </div>
       </div>
     </div>
-    <div class="column col-20 margen">
-      <div class="row">
-        <div id="weather">
+    <div class="column margen">
+      <div class="row clock-wrapper">
+        <div id="clock">
         </div>
       </div>
     </div>
   </div>
 </body>
 
-<!-- script Twitter -->
 <script type="text/javascript">
+//var configurables javascript
+rssUrlGlobal = 'http://rss.emol.com/rss.asp?canal=0'
+twitterId = '345690956013633536'
+weatherLocation = 'Santiago ,Chile'
+logoEnterpriseUrl = 'logopuente.svg'
+
+//rssUrlGlobal = 'URLRSS'
+//twitterId = 'TWITTERID'
+//weatherLocation = 'WEATHERLOCATION'
+//logoEnterpriseUrl = 'LOGOENTERPRISE'
+$("#enterprise-logo").attr('src',logoEnterpriseUrl);
+
+// SCRIPT 
+
+// script Twitter
 
  /*********************************************************************
  *  #### Twitter Post Fetcher v13.0 ####
@@ -537,28 +570,20 @@
  *  Updates will be posted to this site.
  *********************************************************************/
 
-  (function(v,n){"function"===typeof define&&define.amd?define([],n):"object"===typeof exports?module.exports=n():n()})(this,function(){function v(a){return a.replace(/<b[^>]*>(.*?)<\/b>/gi,function(a,f){return f}).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function n(a){a=a.getElementsByTagName("a");for(var c=a.length-1;0<=c;c--)a[c].setAttribute("target","_blank")}function m(a,c){for(var f=[],g=new RegExp("(^| )"+c+"( |$)"),h=a.getElementsByTagName("*"),b=0,k=h.length;b<
-  k;b++)g.test(h[b].className)&&f.push(h[b]);return f}var A="",k=20,B=!0,t=[],w=!1,u=!0,q=!0,x=null,y=!0,C=!0,z=null,D=!0,E=!1,r=!0,F={fetch:function(a){void 0===a.maxTweets&&(a.maxTweets=20);void 0===a.enableLinks&&(a.enableLinks=!0);void 0===a.showUser&&(a.showUser=!0);void 0===a.showTime&&(a.showTime=!0);void 0===a.dateFunction&&(a.dateFunction="default");void 0===a.showRetweet&&(a.showRetweet=!0);void 0===a.customCallback&&(a.customCallback=null);void 0===a.showInteraction&&(a.showInteraction=!0);
-  void 0===a.showImages&&(a.showImages=!1);void 0===a.linksInNewWindow&&(a.linksInNewWindow=!0);if(w)t.push(a);else{w=!0;A=a.domId;k=a.maxTweets;B=a.enableLinks;q=a.showUser;u=a.showTime;C=a.showRetweet;x=a.dateFunction;z=a.customCallback;D=a.showInteraction;E=a.showImages;r=a.linksInNewWindow;var c=document.createElement("script");c.type="text/javascript";c.src="https://cdn.syndication.twimg.com/widgets/timelines/"+a.id+"?&lang="+(a.lang||"en")+"&callback=twitterFetcher.callback&suppress_response_codes=true&rnd="+
-  Math.random();document.getElementsByTagName("head")[0].appendChild(c)}},callback:function(a){var c=document.createElement("div");c.innerHTML=a.body;"undefined"===typeof c.getElementsByClassName&&(y=!1);a=[];var f=[],g=[],h=[],b=[],p=[],e=0;if(y)for(c=c.getElementsByClassName("tweet");e<c.length;){0<c[e].getElementsByClassName("retweet-credit").length?b.push(!0):b.push(!1);if(!b[e]||b[e]&&C)a.push(c[e].getElementsByClassName("e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(c[e].getElementsByClassName("p-author")[0]),
-  g.push(c[e].getElementsByClassName("dt-updated")[0]),void 0!==c[e].getElementsByClassName("inline-media")[0]?h.push(c[e].getElementsByClassName("inline-media")[0]):h.push(void 0);e++}else for(c=m(c,"tweet");e<c.length;)a.push(m(c[e],"e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(m(c[e],"p-author")[0]),g.push(m(c[e],"dt-updated")[0]),void 0!==m(c[e],"inline-media")[0]?h.push(m(c[e],"inline-media")[0]):h.push(void 0),0<m(c[e],"retweet-credit").length?b.push(!0):b.push(!1),e++;
-  a.length>k&&(a.splice(k,a.length-k),f.splice(k,f.length-k),g.splice(k,g.length-k),b.splice(k,b.length-k),h.splice(k,h.length-k));c=[];e=a.length;for(b=0;b<e;){if("string"!==typeof x){var d=g[b].getAttribute("datetime"),l=new Date(g[b].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),d=x(l,d);g[b].setAttribute("aria-label",d);if(a[b].innerText)if(y)g[b].innerText=d;else{var l=document.createElement("p"),G=document.createTextNode(d);l.appendChild(G);l.setAttribute("aria-label",
-  d);g[b]=l}else g[b].textContent=d}d="";B?(r&&(n(a[b]),q&&n(f[b])),q&&(d+='<div class="avatar">'+v(f[b].innerHTML)+"</div>"),d+='<div class="bubble-container"><div class="bubble"><h3 id="twitter-title"></h3><br>'+v(a[b].innerHTML)+"</div><div class='arrow'></div></div>",u&&(d+='<p class="timePosted">'+g[b].getAttribute("aria-label")+"</p>")):a[b].innerText?(q&&(d+='<p class="user">'+f[b].innerText+"</p>"),d+='<p class="tweet">'+a[b].innerText+"</p>",u&&(d+='<p class="timePosted">'+g[b].innerText+"</p>")):(q&&(d+='<p class="user">'+f[b].textContent+"</p>"),d+='<p class="tweet">'+a[b].textContent+
-  "</p>",u&&(d+='<p class="timePosted">'+g[b].textContent+"</p>"));D&&(d+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+p[b]+'" class="twitter_reply_icon"'+(r?' target="_blank">':">")+'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+p[b]+'" class="twitter_retweet_icon"'+(r?' target="_blank">':">")+'Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+p[b]+'" class="twitter_fav_icon"'+(r?' target="_blank">':">")+"Favorite</a></p>");E&&void 0!==
-  h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<li>"+c[f]+"</li>",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
+  (function(v,n){"function"===typeof define&&define.amd?define([],n):"object"===typeof exports?module.exports=n():n()})(this,function(){function v(a){return a.replace(/<b[^>]*>(.*?)<\/b>/gi,function(a,f){return f}).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function n(a){a=a.getElementsByTagName("a");for(var c=a.length-1;0<=c;c--)a[c].setAttribute("target","_blank")}function m(a,c){for(var f=[],g=new RegExp("(^| )"+c+"( |$)"),h=a.getElementsByTagName("*"),b=0,k=h.length;b<k;b++)g.test(h[b].className)&&f.push(h[b]);return f}var A="",k=20,B=!0,t=[],w=!1,u=!0,q=!0,x=null,y=!0,C=!0,z=null,D=!0,E=!1,r=!0,F={fetch:function(a){void 0===a.maxTweets&&(a.maxTweets=20);void 0===a.enableLinks&&(a.enableLinks=!0);void 0===a.showUser&&(a.showUser=!0);void 0===a.showTime&&(a.showTime=!0);void 0===a.dateFunction&&(a.dateFunction="default");void 0===a.showRetweet&&(a.showRetweet=!0);void 0===a.customCallback&&(a.customCallback=null);void 0===a.showInteraction&&(a.showInteraction=!0);void 0===a.showImages&&(a.showImages=!1);void 0===a.linksInNewWindow&&(a.linksInNewWindow=!0);if(w)t.push(a);else{w=!0;A=a.domId;k=a.maxTweets;B=a.enableLinks;q=a.showUser;u=a.showTime;C=a.showRetweet;x=a.dateFunction;z=a.customCallback;D=a.showInteraction;E=a.showImages;r=a.linksInNewWindow;var c=document.createElement("script");c.type="text/javascript";c.src="https://cdn.syndication.twimg.com/widgets/timelines/"+a.id+"?&lang="+(a.lang||"en")+"&callback=twitterFetcher.callback&suppress_response_codes=true&rnd="+ Math.random();document.getElementsByTagName("head")[0].appendChild(c)}},callback:function(a){var c=document.createElement("div");c.innerHTML=a.body;"undefined"===typeof c.getElementsByClassName&&(y=!1);a=[];var f=[],g=[],h=[],b=[],p=[],e=0;if(y)for(c=c.getElementsByClassName("tweet");e<c.length;){0<c[e].getElementsByClassName("retweet-credit").length?b.push(!0):b.push(!1);if(!b[e]||b[e]&&C)a.push(c[e].getElementsByClassName("e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(c[e].getElementsByClassName("p-author")[0]),g.push(c[e].getElementsByClassName("dt-updated")[0]),void 0!==c[e].getElementsByClassName("inline-media")[0]?h.push(c[e].getElementsByClassName("inline-media")[0]):h.push(void 0);e++}else for(c=m(c,"tweet");e<c.length;)a.push(m(c[e],"e-entry-title")[0]),p.push(c[e].getAttribute("data-tweet-id")),f.push(m(c[e],"p-author")[0]),g.push(m(c[e],"dt-updated")[0]),void 0!==m(c[e],"inline-media")[0]?h.push(m(c[e],"inline-media")[0]):h.push(void 0),0<m(c[e],"retweet-credit").length?b.push(!0):b.push(!1),e++;a.length>k&&(a.splice(k,a.length-k),f.splice(k,f.length-k),g.splice(k,g.length-k),b.splice(k,b.length-k),h.splice(k,h.length-k));c=[];e=a.length;for(b=0;b<e;){if("string"!==typeof x){var d=g[b].getAttribute("datetime"),l=new Date(g[b].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),d=x(l,d);g[b].setAttribute("aria-label",d);if(a[b].innerText)if(y)g[b].innerText=d;else{var l=document.createElement("p"),G=document.createTextNode(d);l.appendChild(G);l.setAttribute("aria-label",d);g[b]=l}else g[b].textContent=d}d="";B?(r&&(n(a[b]),q&&n(f[b])),q&&(d+='<div class="avatar">'+v(f[b].innerHTML)+"</div>"),d+='<div class="bubble-container"><div class="bubble"><h3 id="twitter-title"></h3><br>'+v(a[b].innerHTML)+"</div><div class='arrow'></div></div>",u&&(d+='<p class="timePosted">'+g[b].getAttribute("aria-label")+"</p>")):a[b].innerText?(q&&(d+='<p class="user">'+f[b].innerText+"</p>"),d+='<p class="tweet">'+a[b].innerText+"</p>",u&&(d+='<p class="timePosted">'+g[b].innerText+"</p>")):(q&&(d+='<p class="user">'+f[b].textContent+"</p>"),d+='<p class="tweet">'+a[b].textContent+"</p>",u&&(d+='<p class="timePosted">'+g[b].textContent+"</p>"));D&&(d+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+p[b]+'" class="twitter_reply_icon"'+(r?' target="_blank">':">")+'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+p[b]+'" class="twitter_retweet_icon"'+(r?' target="_blank">':">")+'Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+p[b]+'" class="twitter_fav_icon"'+(r?' target="_blank">':">")+"Favorite</a></p>");E&&void 0!==h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<li>"+c[f]+"</li>",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
 
-  var config5 = {
-  "id": '568430290427985920',
-  "domId": '',
-  "maxTweets": 5,
-  "enableLinks": true,
-  "showUser": true,
-  "showTime": false,
-  "dateFunction": '',
-  "showRetweet": false,
-  "customCallback": handleTweets,
-  "showInteraction": false
-  };
+    var config5 = {
+    "id": twitterId,
+    "domId": '',
+    "maxTweets": 5,
+    "enableLinks": true,
+    "showUser": true,
+    "showTime": false,
+    "dateFunction": '',
+    "showRetweet": false,
+    "customCallback": handleTweets,
+    "showInteraction": false
+    };
 
   function handleTweets(tweets){
       var x = tweets.length;
@@ -585,15 +610,21 @@
   }
 
   twitterFetcher.fetch(config5);
-</script>
+
+  // Script for RSS
+  function fadeIn(el) {
+    el.style.opacity = 0;
+    var tick = function() {
+      el.style.opacity = +el.style.opacity + 0.01;    
+      if (+el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+      }
+    };
+    tick();
+  }
 
 
-<script type="text/javascript">
 
-  //variables configurables javascript
-  rssUrlGlobal = "http://news.google.cl/?output=rss"
-
-  // RSS Script 
 
   rssList = []
   rssIdDiv = "post_results"
@@ -658,6 +689,7 @@
       // adding list item to main list
       mainList.appendChild(listItem);
       container.appendChild(mainList);
+      fadeIn(container.children[0]);
       rssList.unshift(title);
     }
 
@@ -675,10 +707,11 @@
     window.setInterval(function(){
       refreshRss();
     }, 20*1000);
-</script>
 
-<!-- Script for Weather-->
-<script type="text/javascript">
+   
+
+
+// Script for Weather
     $(document).ready(function() {  
       getWeather(); //Get the initial weather.
       setInterval(getWeather, 600000); //Update the weather every 10 minutes.
@@ -687,7 +720,7 @@
     function getWeather() {
       $.simpleWeather({
         woeid: '',
-        location: 'Santiago ,Chile',
+        location: weatherLocation,
         unit: 'c',
         success: function(weather) {
           html = '<div class = "weather-wrapper"><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</div>';
@@ -698,24 +731,23 @@
         }
       });
     }
-</script>
 
-<!-- Script for Clock -->
-<script type="text/javascript">
-var d, h, m, s, color;
-function displayTime() {
-  d = new Date(); //new data object
-  h = d.getHours();
-  m = d.getMinutes();
-  s = d.getSeconds();
-  if(h <= 9) h = '0'+h;
-  if(m <= 9) m = '0'+m;
-  if(s <= 9) s = '0'+s;
-  color = h+":"+m;
-  $("#clock").html(color);
-  setTimeout(displayTime, 1000);
-}
+// Script for Clock 
+  var d, h, m, s, color;
+  function displayTime() {
+    d = new Date(); //new data object
+    h = d.getHours();
+    m = d.getMinutes();
+    s = d.getSeconds();
+    if(h <= 9) h = '0'+h;
+    if(m <= 9) m = '0'+m;
+    if(s <= 9) s = '0'+s;
+    color = h+"<span id='clock-separator' style='visibility:hidden;'>:</span>"+m;
+    setTimeout(function(){$('#clock-separator').css('visibility','visible')}, 350);
+    $("#clock").html(color);
+    setTimeout(displayTime, 1000);
+  }
 
-//call the function
-displayTime();
+  //call the function
+  displayTime();
 </script>
