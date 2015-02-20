@@ -424,45 +424,71 @@
   </style>
 
   <!-- Style news -->
-  <style type="">
-  .post_results_container{
-    height:calc(100% - 30px);
-    background-color: #e0e0e0;
-    margin-left: 60px;
-    width: calc(100% - 60px);
-    border-radius: 0 0 10px 10px;
-    padding: 10px;
-    position:relative;
-    top: -10px;
-    color: #003157;
-    vertical-align: middle;
-  }
-  .post_results_container::after{
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 100%;
-    top: 0%;
-    border-width: 5px 10px;
-    border-style: solid;
-    border-color: transparent transparent #000203 #000203 ;
-  }
-  #post_results{
-    padding-right:30px;
-  }
-  #post_results p{
-    vertical-align: middle;
-    font-size: 3vh;
-  }
-
+  <style type="text/css">
+    .post_results_container{
+      height:calc(100% - 30px);
+      background-color: #e0e0e0;
+      margin-left: 60px;
+      width: calc(100% - 60px);
+      border-radius: 0 0 10px 10px;
+      padding: 10px;
+      position:relative;
+      top: -10px;
+      color: #003157;
+      vertical-align: middle;
+    }
+    .post_results_container::after{
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 100%;
+      top: 0%;
+      border-width: 5px 10px;
+      border-style: solid;
+      border-color: transparent transparent #000203 #000203 ;
+    }
+    #post_results{
+      padding-right:30px;
+    }
+    #post_results p{
+      vertical-align: middle;
+      font-size: 3vh;
+    }
   </style>
 
+  <!-- Style liScroll -->
+  <style type="text/css">
+    .ticker{
+      padding-top:1.5%;
+      font-size: 4.2vh;
+      color: #f1f1f1;
+      font-weight:500;
+    }
+  </style>
 </head>
 
 <body>
   <div class="row row-10" style="background-color:#003157;">
-    <div class = 'column col-75'></div>
+    <div class = 'column col-75'>
+      <div class="ticker"
+           data-duration="10"
+           data-loop="2"
+           data-effect="linear">
+        <span>
+         SANTIAGO.
+         <strong>
+         SANTIAGO.
+         </strong>
+         SANTIAGO.
+         SANTIAGO.
+         SANTIAGO.
+         SANTIAGO.
+         SANTIAGO.
+         SANTIAGO.
+        </span>
+      </div>  
+    </div>
     <div class = 'column col-25'>
       <div class= "logo-container margen" style="background-color:#FFF;" >
         <img id='enterprise-logo' class="logo-image" alt="enterpirse-logo">
@@ -559,14 +585,155 @@
   </div>
 </body>
 
+<!-- Ticker -->
+<script type="text/javascript">
+/**
+ * @file jQuery lightweight ticker plugin
+ * @author Aleix Fabra
+ */
+(function ($) {
+  "use strict";
+
+  var jTicker = function (attributes) {
+    var defaults = {
+        offset: 3
+      },
+      attr = attributes || {};
+
+    /**
+     * Set CSS3 Cross-browser transition to element instance
+     * @param  {string} string - CSS3 transition string
+     */
+    function setAnimation(string) {
+      attr.el.css({
+        webkitTransition  : string,
+        mozTransition     : string,
+        msTransition      : string,
+        oTransition       : string,
+        transition        : string
+      });
+    }
+
+    /**
+     * Add animation to element instance
+     */
+    function addAnimation() {
+      var string = 'left ' + attr.duration + 's ' + attr.effect;
+      setAnimation(string);
+      //Set text animation pixels
+      attr.el.css({left: attr.width + 'px'});
+    }
+
+    /**
+     * Remove animation to element instance
+     */
+    function removeAnimation() {
+      var string = 'none';
+      setAnimation(string);
+      //Set text width to the beginning
+      attr.el.css({left: 0});
+    }
+
+    /**
+     * Animate element instance text
+     */
+    function animate() {
+      //Remove animation
+      removeAnimation();
+      //Animate
+      setTimeout(addAnimation, attr.loop * 1000);
+    }
+
+    /**
+     * Detect when CSS3 transition ends
+     */
+    function eventsOn() {
+      attr.el.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', animate);
+    }
+
+    /**
+     * Initialize function to setup the class
+     */
+    function initialize() {
+      var width,
+        containerWidth;
+
+      //Setup css
+      attr.container.css({overflow: 'hidden'});
+      attr.el.css({
+        whiteSpace: 'nowrap',
+        position: 'relative'
+      });
+
+      width = attr.el.width();
+      containerWidth = attr.container.width();
+
+      //Check if text is bigger than it's container and start animation
+      if (width > containerWidth) {
+
+        //Calculate text width
+        attr.width = (-1 * (width + defaults.offset));
+        //Duplicate text
+        attr.el.append(' ' + attr.el.html());
+        //Add events listeners
+        eventsOn();
+        //Trigger first animation
+        animate();
+      }
+    }
+
+    return {
+      'initialize': initialize
+    };
+  };
+
+  var DEFAULTS = {
+    duration : 5,
+    loop     : 1,
+    effect   : ''
+  };
+
+  /**
+   * Create jTicker input object
+   * @param  {number} el - current jquery element
+   * @return {object} jTicker input object
+   */
+  function newAttr(el) {
+    return {
+      container : el,
+      el        : el.children('span').first(),
+      duration  : el.data().duration || DEFAULTS.duration,
+      loop      : el.data().loop     || DEFAULTS.loop,
+      effect    : el.data().effect   || DEFAULTS.effect
+    };
+  }
+
+  /**
+   * Initialize jQuery plugin function
+   * @return {object} jQuery plugin object
+   */
+  $.fn.jTicker = function () {
+    var animation;
+    return this.each(function () {
+      animation = new jTicker(newAttr($(this)));
+      animation.initialize();
+    });
+  };
+
+}(jQuery));
+
+</script>
+
 <script type="text/javascript">
 //var configurables javascript
-rssUrlGlobal = 'http://rss.emol.com/rss.asp?canal=0'
+rssUrlGlobalPrincipal = 'http://rss.emol.com/rss.asp?canal=0'
+rssUrlGlobalSecundario = 'http://rss.emol.com/rss.asp?canal=0'
+
 twitterId = '568430290427985920'
 weatherLocation = 'Santiago ,Chile'
 logoEnterpriseUrl = 'logopuente.svg'
 
-//rssUrlGlobal = 'URLRSS'
+//rssUrlGlobalPrincipal = 'URLRSS'
 //twitterId = 'TWITTERID'
 //weatherLocation = 'WEATHERLOCATION'
 //logoEnterpriseUrl = 'LOGOENTERPRISE'
@@ -696,7 +863,7 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
       init : function(selector) {
         var container = document.getElementById(rssIdDiv);
             // getting necessary variables
-            var rssUrl = rssUrlGlobal
+            var rssUrl = rssUrlGlobalPrincipal
             // count of news
             var num = 30
             var id = rssIdDiv;
@@ -798,4 +965,7 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
 
   //call the function
   displayTime();
+</script>
+<script>
+  $('.ticker').jTicker();
 </script>
