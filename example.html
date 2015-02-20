@@ -553,7 +553,7 @@
 <script type="text/javascript">
 //var configurables javascript
 rssUrlGlobal = 'http://rss.emol.com/rss.asp?canal=0'
-twitterId = '345690956013633536'
+twitterId = '568430290427985920'
 weatherLocation = 'Santiago ,Chile'
 logoEnterpriseUrl = 'logopuente.svg'
 
@@ -584,7 +584,7 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
     var config5 = {
     "id": twitterId,
     "domId": '',
-    "maxTweets": 5,
+    "maxTweets": 4,
     "enableLinks": true,
     "showUser": true,
     "showTime": false,
@@ -598,32 +598,20 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
   function handleTweets(tweets){
     var x = tweets.length;
     var n = 0;
+    console.log(x);
     var element = document.getElementById('twitter');
-    var html = '<ul class="timeline">';
     while(n < x) {
       if($.inArray(tweets[n],tweetsList)>-1){
-        if (tweetsList.length>8){
-          tweetsList.shift();
-        }
-        console.log("HOLAAAAAA");
+        console.log("viejo");
       }
       else{
-        console.log("CHAOOOOO");
-        tweetsList.push(tweets[n]);
-        if (tweetsList.length>8){
-          tweetsList.shift();
-        }
+        console.log("nuevo");
+        tweetsList.unshift(tweets[n]);
+        
       }
       n++;
     }
-    
-    $('ul.timeline').find('li').each(function(){
-      var current = $(this);
-      var current_user = current.find('[data-scribe="element:screen_name"]').html();
-      current.find('h3').html(current_user);
-      current.find('[data-scribe="element:screen_name"]').hide();
-      current.find('[data-scribe="element:name"]').hide();
-    });
+    tweetsList.length =4
   }
   function refreshTwitter(){
     var element = document.getElementById('twitter');
@@ -655,11 +643,11 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
 
   window.setInterval(function(){ 
     twitterFetcher.fetch(config5);
-  }, 8*20*1000);
+  }, 30*1000);
 
   window.setInterval(function(){
     refreshTwitter();
-  }, 8*20*1000);
+  }, 7*1000);
 
 
   // Script for RSS
