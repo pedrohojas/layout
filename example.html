@@ -593,6 +593,8 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
     "customCallback": handleTweets,
     "showInteraction": false
     };
+    tweetsList=[]
+
   function handleTweets(tweets){
     var x = tweets.length;
     var n = 0;
@@ -637,6 +639,9 @@ $("#enterprise-logo").attr('src',logoEnterpriseUrl);
     
   }
   twitterFetcher.fetch(config5);
+  window.setTimeout(function(){
+    refreshTwitter();
+  },1000);
 
   window.setInterval(function(){ 
     twitterFetcher.fetch(config5);
