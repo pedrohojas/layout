@@ -98,6 +98,9 @@
       }                 
       .row-20{
         height:20%;
+      }
+      .row-25{
+        height:25%;
       }      
       .row-30{
         height:30%;
@@ -135,7 +138,10 @@
       .row-90{
         height:90%;
       }
+      .centered{
+        text-align:center;
 
+      }
       iframe.content-iframe{
         width: 100%;
         height:100%;
@@ -191,10 +197,10 @@
     #clock{
       color: white; 
       text-align: center;
-      margin: 0px!important;
-      font-size: 7vh!important;
-      font-weight: 300!important;
-      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
+      margin: 0px;
+      font-size: 8vh;
+      font-weight: 300;
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
     }
 
     @-webkit-keyframes flash {
@@ -246,7 +252,7 @@
 
 
     #weather {
-      margin: 0px auto;
+      margin: -7px auto;
       text-align: center;
       text-transform: uppercase;
       vertical-align: middle;
@@ -255,7 +261,7 @@
     i {
       color: #fff;
       font-family: weather;
-      font-size: 8vh;
+      font-size: 9vh;
       font-weight: normal;
       font-style: normal;
       line-height: 1.0;
@@ -311,12 +317,12 @@
     .icon-47:before { content: "S"; }
 
     .weather-wrapper {
-      margin: 0 0 8px!important;
-      color: #fff!important;
-      font-size: 7vh!important;
-      font-weight: 300!important;
-      text-align: center!important;
-      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)!important;
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 6vh;
+      font-weight: 500;
+      text-align: center;
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
     }
 
     #weather ul {
@@ -425,7 +431,7 @@
   <!-- Style news -->
   <style type="text/css">
     .post_results_container{
-      height:calc(100% - 30px);
+      height:calc(100% - 60px);
       background-color: #e0e0e0;
       margin-left: 60px;
       width: calc(100% - 60px);
@@ -460,7 +466,7 @@
   <style type="text/css">
     .ticker{
       padding-top:1.5%;
-      font-size: 4.2vh;
+      font-size: 6vh;
       color: #f1f1f1;
       font-weight:500;
     }
@@ -468,38 +474,16 @@
 </head>
 
 <body>
-  <div class="row row-10" style="background-color:#003157;">
-    <div class = 'column col-75'>
-      <div class="ticker"
-           data-duration="10"
-           data-loop="2"
-           data-effect="linear">
-        <span>
-         SANTIAGO.
-         <strong>
-         SANTIAGO.
-         </strong>
-         SANTIAGO.
-         SANTIAGO.
-         SANTIAGO.
-         SANTIAGO.
-         SANTIAGO.
-         SANTIAGO.
-        </span>
-      </div>  
-    </div>
-    <div class = 'column col-25'>
-      <div class= "logo-container margen" style="background-color:#FFF;" >
-        <img id='enterprise-logo' class="logo-image" alt="enterpirse-logo">
-      </div>
-    </div>
-  </div>
-
   <div class="row row-75">
     <div class = 'column col-75'>
       <iframe class="content-iframe" src="http://randomcolour.com/"></iframe>
     </div>
     <div class = 'column col-25'>
+      <div class="row row-15">
+        <div class= "logo-container margen" style="background-color:#FFF;" >
+          <img id='enterprise-logo' class="logo-image" alt="enterpirse-logo">
+        </div>
+      </div>
       <div class="row row-15">
         <h2>
           <svg class="svg-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
@@ -518,12 +502,12 @@
           <span> Conversemos </span>
         </h2>
       </div>
-      <div class="row row-85">  
+      <div class="row row-70">  
         <div id="twitter"></div>
       </div>
     </div>
   </div>
-  <div class="row row-15 " style="background-color:#003157;">
+  <div class="row row-25 " style="background-color:#003157;">
     <div class = 'column col-70'>
       <div class='post_results_container'>
         <div class = 'column col-15'>
@@ -559,25 +543,17 @@
               </g>
             </g>
             </svg>
-
         </div>
         <div class = 'column col-85'>
           <div id='post_results'></div>
         </div>
       </div>
     </div>
-    <div class="column col-3">
-    </div>
-
-    <div class="column col-15 weather-column">
-      <div class="row">
-        <div id="weather">
-        </div>
-      </div>
-    </div>
-    <div class="column clock-column">
-      <div class="row clock-wrapper">
+    <div class="column col-30">
+      <div class="row centered" >
         <div id="clock">
+        </div>
+        <div id="weather">
         </div>
       </div>
     </div>
